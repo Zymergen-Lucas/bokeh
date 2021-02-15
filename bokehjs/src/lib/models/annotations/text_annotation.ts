@@ -55,7 +55,7 @@ export abstract class TextAnnotationView extends AnnotationView {
   }
 
   protected _calculate_text_dimensions(ctx: Context2d, text: string): [number, number] {
-    const {width} = ctx.measureText(text)
+    const width = Math.floor(ctx.measureText(text).width)
     const {height} = font_metrics(this.visuals.text.font_value())
     return [width, height]
   }

@@ -61,12 +61,12 @@ export class LegendView extends AnnotationView {
     this.visuals.label_text.set_value(ctx)
     this.text_widths = new Map()
     for (const name of legend_names) {
-      this.text_widths.set(name, max([ctx.measureText(name).width, label_width]))
+      this.text_widths.set(name, max([Math.floor(ctx.measureText(name).width), label_width]))
     }
 
     this.visuals.title_text.set_value(ctx)
     this.title_height = this.model.title ? font_metrics(this.visuals.title_text.font_value()).height + this.model.title_standoff : 0
-    this.title_width = this.model.title ? ctx.measureText(this.model.title).width : 0
+    this.title_width = this.model.title ? Math.floor(ctx.measureText(this.model.title).width) : 0
 
     ctx.restore()
 

@@ -292,7 +292,7 @@ export class AxisView extends GuideRendererView {
     let extent = 0
 
     for (let i = 0; i < labels.length; i++) {
-      const w = ctx.measureText(labels[i]).width * 1.1
+      const w = Math.floor(ctx.measureText(labels[i]).width) * 1.1
       const h = metrics.height
 
       let val: number

@@ -90,7 +90,7 @@ export class TitleView extends TextAnnotationView {
       const {ctx} = this.layer
       this.visuals.text.set_value(ctx)
 
-      const {width} = this.layer.ctx.measureText(text)
+      const width = Math.floor(this.layer.ctx.measureText(text).width)
       const {height} = font_metrics(ctx.font)
 
       // XXX: The magic 2px is for backwards compatibility. This will be removed at
